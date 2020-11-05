@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MuhkuhTest>
+	<Testcase id="org.muhkuh.tests.ramtest.ramtest" name="ramtest_demo">
+		<!-- Ask the user to choose the connection to the netX. -->
+		<Parameter name="plugin">INTERACTIVE</Parameter>
+
+		<!-- Test an SDRAM at the MEM interface of a netX500. -->
+		<Parameter name="interface">SDRAM_HIF</Parameter>
+		<Parameter name="sdram_netx">NETX90B</Parameter>
+
+		<!-- The following parameters are for the ISSI IS45S16400J-7BA2 . -->
+		<Parameter name="sdram_general_ctrl">0x000D0111</Parameter>
+		<Parameter name="sdram_timing_ctrl">0x00304251</Parameter>
+		<Parameter name="sdram_mr">0x00000023</Parameter>
+		<Parameter name="sdram_size_exponent">24</Parameter>
+
+		<!-- Choose the tests to execute. -->
+		<Parameter name="checks">DATABUS,MARCHC,CHECKERBOARD,32BIT,BURST</Parameter>
+	</Testcase>
+
+
+	<Testcase id="org.muhkuh.tests.spi_macro.spi_macro" name="SPI_Winbond_W25Q64">
+		<Parameter name="plugin">INTERACTIVE</Parameter>
+		<Parameter name="unit">netX90_SQI</Parameter>
+		<Parameter name="chip_select">0</Parameter>
+		<Parameter name="speed">25000</Parameter>
+		<Parameter name="port_control_CS">0xffff</Parameter>
+		<Parameter name="port_control_CLK">0xffff</Parameter>
+		<Parameter name="port_control_MOSI">0xffff</Parameter>
+		<Parameter name="port_control_MISO">0xffff</Parameter>
+		<Parameter name="port_control_SIO2">0xffff</Parameter>
+		<Parameter name="port_control_SIO3">0xffff</Parameter>
+		<Parameter name="mmio_CS">0xff</Parameter>
+		<Parameter name="mmio_CLK">0xff</Parameter>
+		<Parameter name="mmio_MISO">0xff</Parameter>
+		<Parameter name="mmio_MOSI">0xff</Parameter>
+		<Parameter name="mmio_SIO2">0xff</Parameter>
+		<Parameter name="mmio_SIO3">0xff</Parameter>
+		<Parameter name="dummy_byte">0xff</Parameter>
+		<Parameter name="mode">3</Parameter>
+		<Parameter name="idle_configuration">0</Parameter>
+		<Parameter name="macro">spi_macro_winbond_w25Q64C.txt</Parameter>
+	</Testcase>
+</MuhkuhTest>
