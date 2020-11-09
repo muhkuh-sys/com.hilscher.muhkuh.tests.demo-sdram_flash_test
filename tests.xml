@@ -39,6 +39,6 @@
 		<Parameter name="dummy_byte">0xff</Parameter>
 		<Parameter name="mode">3</Parameter>
 		<Parameter name="idle_configuration">0</Parameter>
-		<Parameter name="macro">spi_macro_winbond_w25Q64C.txt</Parameter>
+		<Parameter name="macro">spi_macros/spi_macro_winbond_w25Q64C.txt</Parameter>
 	</Testcase>
 </MuhkuhTest>

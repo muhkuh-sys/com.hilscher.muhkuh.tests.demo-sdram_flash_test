@@ -7,11 +7,11 @@ t:install{
   ['local/muhkuh_cli_init.lua']                    = '${install_base}/',
 
   -- SPI macros.
-  ['local/spi_macro_adesto_at45db321e.txt']        = '${install_base}/',
-  ['local/spi_macro_macronix_mx25l12835f.txt']     = '${install_base}/',
-  ['local/spi_macro_macronix_mx25l3233f.txt']      = '${install_base}/',
-  ['local/spi_macro_winbond_w25Q32B.txt']          = '${install_base}/',
-  ['local/spi_macro_winbond_w25Q64C.txt']          = '${install_base}/',
+  ['local/spi_macro_adesto_at45db321e.txt']        = '${install_base}/spi_macros/',
+  ['local/spi_macro_macronix_mx25l12835f.txt']     = '${install_base}/spi_macros/',
+  ['local/spi_macro_macronix_mx25l3233f.txt']      = '${install_base}/spi_macros/',
+  ['local/spi_macro_winbond_w25Q32B.txt']          = '${install_base}/spi_macros/',
+  ['local/spi_macro_winbond_w25Q64C.txt']          = '${install_base}/spi_macros/',
 
   ['${report_path}']                               = '${install_base}/.jonchki/'
 }
