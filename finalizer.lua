@@ -1,5 +1,6 @@
 local t = ...
 local pl = t.pl
+local strDistId = t:get_platform()
 
 -- Copy all additional files.
 t:install{
@@ -15,6 +16,12 @@ t:install{
 
   ['${report_path}']                               = '${install_base}/.jonchki/'
 }
+
+if strDistId=='windows' then
+  t:install{
+    ['local/tester.lnk']                           = '${install_base}',
+  }
+end
 
 -- Move the tests.xml to tests.xml.template
 pl.file.move(t:replace_template('${install_base}/tests.xml'), t:replace_template('${install_base}/tests.xml.template'))
