@@ -19,7 +19,7 @@ t:install{
 
 if strDistId=='windows' then
   t:install{
-    ['local/tester.lnk']                           = '${install_base}',
+    ['local/tester.lnk']                           = '${install_base}/',
   }
 end
 
