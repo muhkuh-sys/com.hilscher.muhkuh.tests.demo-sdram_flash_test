@@ -1,0 +1,95 @@
+    # Send 2 dummy bytes.
+    DUMMY(2)
+
+    # Read the JEDEC ID.
+    # Fail if it does not match the expected values for the MX25L12835F.
+    CS(true)
+    SEND(0x9f)
+    CS(true)
+    RECEIVE(3)
+    CS(false)
+    DUMMY(1)
+    CMP(0xc2, 0x20, 0x18)
+    FAIL(NotEqual,'Fail to match JEDEC ID!')
+
+    # Read the SFDP magic in 1 bit.
+    CS(true)
+    SEND(0x5a, 0x00, 0x00, 0x00, 0x00)
+    CS(true)
+    RECEIVE(4)
+    CS(false)
+    DUMMY(1)
+    CMP(0x53, 0x46, 0x44, 0x50)
+    FAIL(NotEqual,'Fail to match SFDP magic!')
+
+    # Set the QE bit in the status register.
+    CS(true)
+    SEND(0x05)
+    CS(true)
+    RECEIVE(1)
+    CS(false)
+    DUMMY(1)
+    MASK(0x40)
+    JUMP(NotZero, 'QeBitSet')
+    CS(true)
+    SEND(0x06)
+    CS(false)
+    DUMMY(1)
+    CS(true)
+    SEND(0x01, 0x40)
+    CS(false)
+    DUMMY(1)
+
+    # Poll for write finished.
+Poll:
+    CS(true)
+    SEND(0x05)
+    CS(true)
+    RECEIVE(1)
+    CS(false)
+    DUMMY(1)
+    # Get the BUSY bit.
+    MASK(0x01)
+    JUMP(NotZero, 'Poll')
+
+QeBitSet:
+
+    # Activate QPI mode to get 4 bit commands.
+    CS(true)
+    SEND(0x35)
+    CS(false)
+    DUMMY(1)
+
+    # Switch to 4 bit mode.
+    MODE(4BIT)
+    # Read the JEDEC ID in 4 bit.
+    # Fail if it does not match the expected values for the MX25L12835F.
+    CS(true)
+    SEND(0xaf)
+    CS(true)
+    RECEIVE(3)
+    CS(false)
+    DUMMY(1)
+    CMP(0xc2, 0x20, 0x18)
+    FAIL(NotEqual,'Fail to match JEDEC ID in 4 bit!')
+
+    # Read the SFDP magic.
+    CS(true)
+    SEND(0x5a, 0x00, 0x00, 0x00, 0x00)
+    CS(true)
+    IDLE(6)
+    CS(true)
+    RECEIVE(4)
+    CS(false)
+    DUMMY(1)
+    CMP(0x53, 0x46, 0x44, 0x50)
+    FAIL(NotEqual,'Fail to match SFDP magic in 4 bit!')
+
+    # Deactivate QPI mode.
+    CS(true)
+    SEND(0xf5)
+    CS(false)
+    DUMMY(1)
+
+    # Switch to 1 bit mode.
+    MODE(1BIT)
