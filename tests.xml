@@ -4,7 +4,7 @@
 		<!-- Ask the user to choose the connection to the netX. -->
 		<Parameter name="plugin">INTERACTIVE</Parameter>
 
-		<!-- Test an SDRAM at the MEM interface of a netX500. -->
+		<!-- Test an SDRAM at the HIF interface of a netX90. -->
 		<Parameter name="interface">SDRAM_HIF</Parameter>
 		<Parameter name="sdram_netx">NETX90B</Parameter>
 
