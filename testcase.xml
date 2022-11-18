@@ -15,7 +15,7 @@
 	<dependencies>
 		<dependency group="org.muhkuh.tools" module="muhkuh_tester_cli" artifact="lua5.4-muhkuh_tester_cli" version="1.3"/>
 		<dependency group="org.muhkuh.tests" module="ramtest" artifact="ramtest" version="1.4"/>
-		<dependency group="org.muhkuh.tests" module="spi_macro" artifact="spi_macro" version="2.0"/>
+		<dependency group="org.muhkuh.tests" module="spi_macro" artifact="spi_macro" version="2.1"/>
 	</dependencies>
 	<actions>
 		<action name="finalizer" file="${prj_root}/finalizer.lua"/>
