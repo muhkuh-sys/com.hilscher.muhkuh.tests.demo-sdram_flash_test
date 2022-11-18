@@ -9,17 +9,18 @@
 		<Parameter name="sdram_netx">NETX90B</Parameter>
 
 		<!-- The following parameters are for the ISSI IS45S16400J-7BA2 . -->
-		<Parameter name="sdram_general_ctrl">0x000D0111</Parameter>
-		<Parameter name="sdram_timing_ctrl">0x00304251</Parameter>
+		<!-- This is COMPVERIFY-74 from here: https://ticket.hilscher.com/browse/COMPVERIFY-74 -->
+		<Parameter name="sdram_general_ctrl">0x000D0011</Parameter>
+		<Parameter name="sdram_timing_ctrl">0x00303251</Parameter>
 		<Parameter name="sdram_mr">0x00000023</Parameter>
-		<Parameter name="sdram_size_exponent">24</Parameter>
+		<Parameter name="sdram_size_exponent">23</Parameter>
 
 		<!-- Choose the tests to execute. -->
 		<Parameter name="checks">DATABUS,MARCHC,CHECKERBOARD,32BIT,BURST</Parameter>
 	</Testcase>
 
 
-	<Testcase id="org.muhkuh.tests.spi_macro.spi_macro" name="SPI_Winbond_W25Q64">
+	<Testcase id="org.muhkuh.tests.spi_macro.spi_macro" name="SPI_ISSI_IS25LP064D">
 		<Parameter name="plugin">INTERACTIVE</Parameter>
 		<Parameter name="unit">netX90_SQI</Parameter>
 		<Parameter name="chip_select">0</Parameter>
@@ -39,6 +40,6 @@
 		<Parameter name="dummy_byte">0xff</Parameter>
 		<Parameter name="mode">3</Parameter>
 		<Parameter name="idle_configuration">0</Parameter>
-		<Parameter name="macro">spi_macros/spi_macro_winbond_w25Q64C_4bit.txt</Parameter>
+		<Parameter name="macro">spi_macros/spi_macro_issi_is25lp064d_4bit.txt</Parameter>
 	</Testcase>
 </MuhkuhTest>
