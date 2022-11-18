@@ -34,7 +34,7 @@ strCfg_jonchkiHerePath = os.path.join(
     'jonchki'
 )
 # This is the Jonchki version to use.
-strCfg_jonchkiVersion = '0.0.6.1'
+strCfg_jonchkiVersion = '0.0.9.1'
 # Look in this folder for Jonchki archives before downloading them.
 strCfg_jonchkiLocalArchives = os.path.join(
     strCfg_projectFolder,
@@ -66,10 +66,6 @@ strCfg_jonchkiProjectConfiguration = os.path.join(
 strCfg_jonchkiPrepare = os.path.join(
     strCfg_projectFolder,
     'prepare.lua'
-)
-strCfg_jonchkiFinalizer = os.path.join(
-    strCfg_projectFolder,
-    'finalizer.lua'
 )
 strCfg_jonchkiDependencyLog = os.path.join(
     strCfg_projectFolder,
@@ -111,7 +107,7 @@ astrArguments.extend(['-v', 'debug'])
 astrArguments.extend(['--logfile', strCfg_jonchkiLog])
 astrArguments.extend(['--syscfg', strCfg_jonchkiSystemConfiguration])
 astrArguments.extend(['--prjcfg', strCfg_jonchkiProjectConfiguration])
-astrArguments.extend(['--finalizer', strCfg_jonchkiFinalizer])
+astrArguments.extend(['--project-root', strCfg_projectFolder])
 astrArguments.extend(['--dependency-log', strCfg_jonchkiDependencyLog])
 astrArguments.extend(['--prepare', strCfg_jonchkiPrepare])
 astrArguments.extend(astrJonchkiPlatform)

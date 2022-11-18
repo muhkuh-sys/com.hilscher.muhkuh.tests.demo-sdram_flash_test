@@ -31,9 +31,4 @@ end
 -- Move the tests.xml to tests.xml.template
 pl.file.move(t:replace_template('${install_base}/tests.xml'), t:replace_template('${install_base}/tests.xml.template'))
 
--- Build the artifact.
-t:createPackageFile()
-t:createHashFile()
-t:createArchive('${install_base}/../../../${default_archive_name}', 'native')
-
 return true
